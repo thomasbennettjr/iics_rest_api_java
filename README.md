@@ -1,1 +1,2 @@
-# iics_rest_api_java
+# icsapi
+Rest API calls for Informatica Cloud
