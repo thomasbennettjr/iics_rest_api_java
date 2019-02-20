@@ -15,10 +15,12 @@ public class APITest {
 
     private InformaticaCloudImpl impl = new InformaticaCloudImpl();
 
+    private final String _USERNAME = "user";
+    private final String _PASSWORD = "pwd";
     @Test
     public void FindTasksByMappingId()
     {
-        Login login = new Login("thomas-native","Lak3v13w.c0m");
+        Login login = new Login(_USERNAME,_PASSWORD);
         try {
             User user = impl.login(login);
             String mappingid = "0109VC170000000000H9";
@@ -57,8 +59,8 @@ public class APITest {
         String FromCookie = "SERVERID_SAAS=IICS-saas8225480; SERVERID_DA=IICS-da15097400; ICRTSERVERID=IICS-taskflow6247200; SERVERID_AC=IICS-ac15097400; USER_SESSION=5qH4Ly8MvsFjJmmDoNM5e2; XSRF_TOKEN=9RCJ9ZV8bu3jvMsNSwKaK8; infa-cloudshell-shash=153a2341e9589361c1269f2b9d979bd1; AID=TpGsxu6ErE9ZhXONHqDC; symphonyOsgiSid=TpGsxu6ErE9ZhXONHqDC";
         //String ToXSRF_TOKEN = "6IBq6WxdiYAbhRtXUt9NoC";
         //String ToCookie = "USER_SESSION=br6IG0Kme0ziyaGQAREv8S; XSRF_TOKEN=6IBq6WxdiYAbhRtXUt9NoC; ICRTSERVERID=IICS-taskflow6247200; infa-cloudshell-shash=5d3b794925d002f8cf6d48a009e8368e; AID=98oI4lHVv2DnGVT2bw8X; symphonyOsgiSid=98oI4lHVv2DnGVT2bw8X; SERVERID_SAAS=IICS-saas22594040; SERVERID_DA=IICS-da23635240";
-        Login fromOrg = new Login("tbennett@unicosolution.com", "B3nn3tt0.c0m");
-        Login toOrg = new Login("tbennett@univision.net.qa", "Lak3v13w.c0m");
+        Login fromOrg = new Login(_USERNAME,_PASSWORD);
+        Login toOrg = new Login(_USERNAME,_PASSWORD);
         try {
              User fromUser = impl.login(fromOrg);
              //User toUser = impl.login(toOrg);
@@ -89,8 +91,8 @@ public class APITest {
     @Test
     public void TestLoginApiCallSuccess()
     {
-        //Login login = new Login("tbennett@teradata.com.infa", "lak3v13w.c0m");
-        Login login = new Login("tbennett@unicosolution.com", "B3nn3tt0.c0m");
+
+        Login login = new Login(_USERNAME,_PASSWORD);
         User user = null;
         try {
             user = impl.login(login);
@@ -148,7 +150,7 @@ public class APITest {
     @Test
     public void TestLoginApiCallFail()
     {
-        Login login = new Login("tbennett@criticalmindsa.com", "lakev13w.c0m");
+        Login login = new Login(_USERNAME,_PASSWORD);
 
         try {
             User user = impl.login(login);
@@ -168,7 +170,7 @@ public class APITest {
     @Test
     public void TestStartJob()
     {
-        Login login = new Login("thomas-native", "Lak3v13w.c0m");
+        Login login = new Login(_USERNAME,_PASSWORD);
         Job job = new Job();
         //job.setTaskName("mct_iot_load_infractions");
         job.setTaskType("MTT");
@@ -194,7 +196,7 @@ public class APITest {
     @Test
     public void TestStartJobWait()
     {
-        Login login = new Login("tbennett@criticalmindsad.com", "lak3v13w.c0m");
+        Login login = new Login(_USERNAME,_PASSWORD);
         Job job = new Job();
         job.setTaskName("mct_iot_load_customers");
         job.setTaskType("MTT");
@@ -229,7 +231,7 @@ public class APITest {
     @Test
     public void TestStartJobStop()
     {
-        Login login = new Login("tbennett@criticalmindsad.com", "lak3v13w.c0m");
+        Login login = new Login(_USERNAME,_PASSWORD);
         Job job = new Job();
         job.setTaskName("mct_iot_load_infractions");
         job.setTaskType("MTT");
@@ -261,7 +263,7 @@ public class APITest {
     @Test
     public void TestStopJobNoJob()
     {
-        Login login = new Login("tbennett@criticalmindsad.com", "lak3v13w.c0m");
+        Login login = new Login(_USERNAME,_PASSWORD);
         Job job = new Job();
         job.setTaskName("mct_iot_load_infractions");
         job.setTaskType("MTT");
@@ -290,7 +292,7 @@ public class APITest {
     @Test
     public void TestGetAllUsers()
     {
-    		Login login = new Login("infauser@unicosolution.com","InfaT@$$");
+    		Login login = new Login(_USERNAME,_PASSWORD);
     		try
     		{
     			User user = impl.login(login);
